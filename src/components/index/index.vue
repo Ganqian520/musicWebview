@@ -98,9 +98,9 @@ log.value.push(innerWidth,innerHeight)
   .log {
     position: absolute;
     top: 50vh;
-    left: 50vw;
+    left: 50%;
     width: 20vw;
-    height: 20vh;
+    height: 20%;
   }
 
   .anchor_ {
