@@ -46,14 +46,16 @@
 
     <span class="setting iconfont icon-shezhi" @mouseenter="()=>isOpenMenu=true"></span>
     <span class="msg">{{msgs[state.msg.value]}}</span>
-    <fft style="backgroundColor:white" />
+
+    <div class="log">
+      <div class="log_item" v-for="(item,index) in log" :key="index">{{item}}</div>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref ,defineAsyncComponent} from "vue";
 
-import fft from "./fft.vue"
 
 import menugq from "@/components/index/menu.vue";
 import anchor from '@/components/widgets/anchor.vue'
@@ -67,7 +69,7 @@ const login = defineAsyncComponent(()=> import('@/components/index/login.vue'))
 const comments = defineAsyncComponent(()=> import('@/components/index/comments.vue'))
 const piano = defineAsyncComponent(()=>import('@/components/piano/index.vue'))
 
-import {state,position,show} from '@/util/state.js'
+import {state,position,show,log} from '@/util/state.js'
 
 const isOpenMenu = ref(false)
 
@@ -82,6 +84,8 @@ positionStr ? position.value = JSON.parse(positionStr) : null
 let show_ = localStorage.getItem('show')
 show_ ? show.value = JSON.parse(show_) : null
 
+log.value.push(innerWidth,innerHeight)
+
 </script>
 
 <style scoped lang="less">
@@ -90,6 +94,12 @@ show_ ? show.value = JSON.parse(show_) : null
   height: 100vh;
   position: relative;
   display: flex;
+
+  .log {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+  }
 
   .anchor_ {
     position: absolute;

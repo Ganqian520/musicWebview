@@ -17,6 +17,8 @@ export const show = ref({
   three: true,
 })
 
+export const log = ref(["打印台"])
+
 export const position = ref({
   comments: { x: 470, y: 323 },
   control: { x: 874, y: 595 },
