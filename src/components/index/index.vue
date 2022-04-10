@@ -47,7 +47,7 @@
     <span class="setting iconfont icon-shezhi" @mouseenter="()=>isOpenMenu=true"></span>
     <span class="msg">{{msgs[state.msg.value]}}</span>
 
-    <div class="log">
+    <div class="log bg">
       <div class="log_item" v-for="(item,index) in log" :key="index">{{item}}</div>
     </div>
   </div>
@@ -99,6 +99,8 @@ log.value.push(innerWidth,innerHeight)
     position: absolute;
     top: 50vh;
     left: 50vw;
+    width: 20vw;
+    height: 20vh;
   }
 
   .anchor_ {
