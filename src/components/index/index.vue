@@ -98,16 +98,15 @@ log.value.push(innerWidth,innerHeight)
 
   .hide{
     position: absolute;
-    top: 5%;
-    right: 5%;
+    top: 50px;
+    right: 50px;
   }
 
   .log {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 0px;
+    left: 0px;
     width: 20vw;
-    height: 20%;
   }
 
   .anchor_ {
