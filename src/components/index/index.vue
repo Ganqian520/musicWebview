@@ -13,7 +13,7 @@
       <anchor from="dou" />
     </div>
     
-    <div class="anchor_" v-if="show.net && state.isLogin.value" :style="{left:position.net.x+'px',top:position.net.y+'px'}">
+    <div class="anchor_" v-show="isShow" v-if="show.net && state.isLogin.value" :style="{left:position.net.x+'px',top:position.net.y+'px'}">
       <netgq />
       <anchor from="net" />
     </div>
@@ -46,6 +46,7 @@
 
     <span class="setting iconfont icon-shezhi" @mouseenter="()=>isOpenMenu=true"></span>
     <span class="msg">{{msgs[state.msg.value]}}</span>
+    <mswitch class="hide" :flag="isShow" @change="()=>isShow = !isShow" />
 
     <div class="log bg">
       <div class="log_item" v-for="(item,index) in log" :key="index">{{item}}</div>
@@ -56,7 +57,7 @@
 <script setup>
 import { ref ,defineAsyncComponent} from "vue";
 
-
+import mswitch from "@/components/widgets/switch.vue"
 import menugq from "@/components/index/menu.vue";
 import anchor from '@/components/widgets/anchor.vue'
 const three = defineAsyncComponent(()=>import('@/components/threeD/index.vue'))
@@ -72,7 +73,7 @@ const piano = defineAsyncComponent(()=>import('@/components/piano/index.vue'))
 import {state,position,show,log} from '@/util/state.js'
 
 const isOpenMenu = ref(false)
-
+const isShow = ref(true)
 const msgs = ['','拼命加载中...']
 
 let user = localStorage.getItem('user')
@@ -95,10 +96,16 @@ log.value.push(innerWidth,innerHeight)
   position: relative;
   display: flex;
 
+  .hide{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+  }
+
   .log {
     position: absolute;
-    top: 50vh;
-    left: 50%;
+    bottom: 0;
+    left: 0;
     width: 20vw;
     height: 20%;
   }
