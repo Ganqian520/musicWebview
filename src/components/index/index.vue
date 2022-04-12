@@ -104,7 +104,7 @@ log.value.push(innerWidth,innerHeight)
 
   .log {
     position: absolute;
-    bottom: 0px;
+    bottom: 50px;
     left: 0px;
     width: 20vw;
   }
