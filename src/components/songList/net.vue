@@ -148,7 +148,7 @@ function changeList(index) {
 <style scoped lang="less">
 .net {
   width: 350px;
-  height: 80vh;
+  height: 350px;
   display: flex;
   flex-direction: column;
   .span_ {

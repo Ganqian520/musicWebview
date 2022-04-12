@@ -1,5 +1,6 @@
 <template>
   <div class="anchor bg" v-if="state.isOpenAnchor.value" @mousedown="down">
+    <slot />
   </div>
 </template>
 
